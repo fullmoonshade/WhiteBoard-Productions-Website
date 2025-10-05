@@ -14,6 +14,14 @@ export const metadata: Metadata = {
   description:
     "From podcast production to viral video clips, WhiteBoard Productions delivers professional audio and video editing that's fast, engaging, and built to captivate your audience.",
   generator: "v0.app",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icons/WhiteBoard-productions-logo-bnw.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icons/WhiteBoard-productions-logo-bnw.svg",
+    apple: "/icons/WhiteBoard-productions-logo-bnw.svg",
+  },
 }
 
 export default function RootLayout({
