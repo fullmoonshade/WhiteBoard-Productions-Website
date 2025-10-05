@@ -4,13 +4,15 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import Script from "next/script"
 import Plasma from "@/components/plasma"
+import { TransitionProvider } from "@/components/transition-provider"
+import { PageTransition } from "@/components/page-transition"
 
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
 export const metadata: Metadata = {
-  title: "Skitbit | 3D Animation Made Simple, Reliable & Scalable",
+  title: "WhiteBoard Productions | Professional Podcasting & Video Editing Services",
   description:
-    "From product launches to full-scale campaigns, Skitbit delivers 3D animation that's fast, consistent, and built to wow your audience.",
+    "From podcast production to viral video clips, WhiteBoard Productions delivers professional audio and video editing that's fast, engaging, and built to captivate your audience.",
   generator: "v0.app",
 }
 
@@ -83,7 +85,13 @@ export default function RootLayout({
             mouseInteractive={true}
           />
         </div>
-        <div className="relative z-10">{children}</div>
+        <div className="relative z-10">
+          <TransitionProvider>
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </TransitionProvider>
+        </div>
       </body>
     </html>
   )

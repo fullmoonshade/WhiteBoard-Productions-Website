@@ -7,6 +7,8 @@ import { Card } from "@/components/ui/card"
 import { Instagram, Twitter, Youtube, MessageCircle } from "lucide-react"
 import LazyVideo from "./lazy-video"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
+import { useTransition } from "./transition-provider"
 
 interface FooterContent {
   tagline: string
@@ -14,16 +16,52 @@ interface FooterContent {
 }
 
 const defaultContent: FooterContent = {
-  tagline: "Experience 3D animation like never before. We craft cinematic visuals for brands and products.",
-  copyright: "© 2025 — Skitbit International Uk",
+  tagline: "Experience professional podcasting and video editing like never before. We craft engaging content for creators and brands.",
+  copyright: "© 2025 — WhiteBoard Productions",
 }
 
 export function AppverseFooter() {
   const [content, setContent] = useState<FooterContent>(defaultContent)
+  const router = useRouter()
+  const { triggerTransition } = useTransition()
+
+  const handleSmoothScroll = (href: string, e: React.MouseEvent) => {
+    // Trigger fade transition for any navigation click
+    triggerTransition()
+    
+    if (href.startsWith("#")) {
+      e.preventDefault()
+      // If we're not on the home page, navigate to home page first, then scroll to section
+      if (window.location.pathname !== "/") {
+        router.push(`/${href}`)
+      } else {
+        // If we're already on home page, just scroll to the section
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          })
+        }
+      }
+    } else if (href === "/") {
+      e.preventDefault()
+      // If we're not on the home page, navigate there first
+      if (window.location.pathname !== "/") {
+        router.push("/")
+      } else {
+        // If we're already on home page, just scroll to top
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        })
+      }
+    }
+  }
 
   useEffect(() => {
     // Load content from localStorage
-    const savedContent = localStorage.getItem("skitbit-content")
+    const savedContent = localStorage.getItem("whiteboard-content")
     if (savedContent) {
       try {
         const parsed = JSON.parse(savedContent)
@@ -37,7 +75,7 @@ export function AppverseFooter() {
   }, [])
 
   return (
-    <section className="text-white">
+    <section id="footer" className="text-white">
       {/* Contact CTA */}
       <div className="container mx-auto px-4 pt-12 sm:pt-16">
         <div className="flex justify-center">
@@ -58,12 +96,12 @@ export function AppverseFooter() {
           <div className="relative grid items-center gap-8 md:grid-cols-2">
             {/* Left copy */}
             <div>
-              <p className="mb-2 text-[11px] tracking-widest text-lime-300">STREAMLINE YOUR LAUNCHES</p>
+              <p className="mb-2 text-[11px] tracking-widest text-lime-300">STREAMLINE YOUR CONTENT</p>
               <h3 className="text-2xl font-bold leading-tight text-white sm:text-3xl">
-                Preview &amp; approve high-end 3D visuals from anywhere
+                Preview &amp; approve professional content from anywhere
               </h3>
               <p className="mt-2 max-w-prose text-sm text-neutral-400">
-                Review renders, leave timestamped comments, and approve scenes from anywhere. Using our revision &amp;
+                Review edits, leave timestamped comments, and approve content from anywhere. Using our revision &amp;
                 collaboration tools
               </p>
             </div>
@@ -80,7 +118,7 @@ export function AppverseFooter() {
                     loop={true}
                     muted={true}
                     playsInline={true}
-                    aria-label="Skitbit app preview - approvals made easy"
+                    aria-label="WhiteBoard Productions app preview - approvals made easy"
                   />
                   {/* On-screen content */}
                   <div className="relative p-3">
@@ -107,8 +145,8 @@ export function AppverseFooter() {
             {/* Brand */}
             <div className="space-y-3">
               <div className="flex items-center gap-1.5">
-                <Image src="/icons/skitbit-white.svg" alt="Skitbit logo" width={24} height={24} className="h-6 w-6" />
-                <span className="text-xl font-semibold text-lime-300">Skitbit</span>
+                <Image src="/icons/WhiteBoard-productions-logo-bnw.svg" alt="WhiteBoard Productions logo" width={24} height={24} className="h-6 w-6" />
+                <span className="text-xl font-semibold text-lime-300">WhiteBoard</span>
               </div>
               <p className="max-w-sm text-sm text-neutral-400">{content.tagline}</p>
             </div>
@@ -118,13 +156,18 @@ export function AppverseFooter() {
               <div>
                 <h5 className="mb-2 text-xs font-semibold uppercase tracking-widest text-neutral-400">Navigation</h5>
                 <ul className="space-y-2 text-sm text-neutral-300">
-                  {["Home", "Features", "Testimonials", "Pricing", "Blog", "Download"].map((item) => (
-                    <li key={item}>
-                      <Link href={`#${item.toLowerCase()}`} className="hover:text-lime-300">
-                        {item}
-                      </Link>
-                    </li>
-                  ))}
+                  <li>
+                    <Link href="/" className="hover:text-lime-300" onClick={(e) => handleSmoothScroll("/", e)}>Home</Link>
+                  </li>
+                  <li>
+                    <Link href="#pricing" className="hover:text-lime-300" onClick={(e) => handleSmoothScroll("#pricing", e)}>Pricing</Link>
+                  </li>
+                  <li>
+                    <Link href="/faq" className="hover:text-lime-300">FAQ</Link>
+                  </li>
+                  <li>
+                    <Link href="/About" className="hover:text-lime-300">About</Link>
+                  </li>
                 </ul>
               </div>
               <div>
@@ -133,11 +176,11 @@ export function AppverseFooter() {
                   <li className="flex items-center gap-2">
                     <Twitter className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://twitter.com/theskitbit"
+                      href="https://twitter.com/whiteboardprod"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-lime-300"
-                      aria-label="Follow skitbit on Twitter"
+                      aria-label="Follow WhiteBoard Productions on Twitter"
                     >
                       X/Twitter
                     </a>
@@ -145,11 +188,11 @@ export function AppverseFooter() {
                   <li className="flex items-center gap-2">
                     <Youtube className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://www.youtube.com/@skitbitinternational"
+                      href="https://www.youtube.com/@whiteboardproductions"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-lime-300"
-                      aria-label="Subscribe to skitbit on YouTube"
+                      aria-label="Subscribe to WhiteBoard Productions on YouTube"
                     >
                       YouTube
                     </a>
@@ -157,11 +200,11 @@ export function AppverseFooter() {
                   <li className="flex items-center gap-2">
                     <Instagram className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://instagram.com/theskitbit"
+                      href="https://instagram.com/whiteboardproductions"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-lime-300"
-                      aria-label="Follow skitbit on Instagram"
+                      aria-label="Follow WhiteBoard Productions on Instagram"
                     >
                       Instagram
                     </a>
@@ -169,11 +212,11 @@ export function AppverseFooter() {
                   <li className="flex items-center gap-2">
                     <MessageCircle className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://threads.com/theskitbit"
+                      href="https://threads.com/whiteboardproductions"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-lime-300"
-                      aria-label="Follow skitbit on Threads"
+                      aria-label="Follow WhiteBoard Productions on Threads"
                     >
                       Threads
                     </a>
@@ -189,9 +232,6 @@ export function AppverseFooter() {
             <div className="flex items-center gap-6">
               <Link href="/revisions" className="hover:text-lime-300">
                 Revision Policy
-              </Link>
-              <Link href="/t&c" className="hover:text-lime-300">
-                Terms & Conditions
               </Link>
             </div>
           </div>

@@ -1,5 +1,15 @@
 import { SiteHeader } from "@/components/site-header";
 import { AppverseFooter } from "@/components/appverse-footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Revision Policy — WhiteBoard Productions",
+  description: "Our revision policy ensures transparency and fairness for all clients while maintaining the quality and efficiency of our podcasting and video editing work.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function RevisionPolicyPage() {
   return (
@@ -14,7 +24,7 @@ export default function RevisionPolicyPage() {
                 <header className="space-y-4">
                   <h1 className="text-4xl font-bold tracking-tight text-lime-300">Revision Policy</h1>
                   <p className="text-neutral-400 text-lg">
-                    Our revision policy ensures transparency and fairness for all clients while maintaining the quality and efficiency of our work.
+                    Our revision policy ensures transparency and fairness for all clients while maintaining the quality and efficiency of our podcasting and video editing work.
                   </p>
                 </header>
 
@@ -52,17 +62,27 @@ export default function RevisionPolicyPage() {
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">4. Turnaround Time</h2>
                   <p className="text-neutral-300">
-                    The turnaround time for revisions will depend on the complexity of the requested changes and current project workload.
+                    The turnaround time for revisions will depend on the complexity of the requested changes and current project workload. We typically deliver revisions within 2-5 business days.
                   </p>
                 </section>
 
                 <section className="space-y-3">
-                  <h2 className="text-2xl font-semibold text-white">5. Contact Us</h2>
+                  <h2 className="text-2xl font-semibold text-white">5. Quality Assurance</h2>
+                  <p className="text-neutral-300">
+                    All revisions undergo our quality assurance process to ensure they meet WhiteBoard Productions' high standards for podcasting and video editing excellence.
+                  </p>
+                </section>
+
+                <section className="space-y-3">
+                  <h2 className="text-2xl font-semibold text-white">6. Contact Us</h2>
                   <p className="text-neutral-300">
                     For questions regarding our revision policy, please contact us at:
                   </p>
                   <p className="text-neutral-300">
-                    Email: <a href="mailto:hello@theskitbit.com" className="text-lime-300 underline">hello@theskitbit.com</a>
+                    Email: <a href="mailto:hello@whiteboardproductions.com" className="text-lime-300 underline">hello@whiteboardproductions.com</a>
+                  </p>
+                  <p className="text-neutral-300">
+                    WhatsApp: <a href="https://wa.link/rc25na" className="text-lime-300 underline" target="_blank" rel="noopener noreferrer">Contact us on WhatsApp</a>
                   </p>
                 </section>
               </div>

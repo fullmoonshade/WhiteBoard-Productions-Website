@@ -13,44 +13,39 @@ export default function FAQPage() {
                 <header className="space-y-4">
                   <h1 className="text-4xl font-bold tracking-tight text-lime-300">Frequently Asked Questions</h1>
                   <p className="text-neutral-400 text-lg">
-                    Answers to common questions we get from brands about 3D animation and rendering for products.
+                    Answers to common questions we get from content creators about podcasting and video editing services.
                   </p>
                 </header>
 
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">
-                    1. What types of products can you animate or render?
+                    1. What types of content do you edit?
                   </h2>
                   <p className="text-neutral-300">
-                    We can create photorealistic 3D animations and renders for almost any product — from beauty and
-                    skincare to electronics, furniture, and luxury goods. If it exists (or is planned), we can bring it
-                    to life.
+                    We specialize in podcast editing, video content creation, social media clips, and multi-platform optimization. From long-form podcasts to viral TikTok clips, we handle all types of audio and video content.
                   </p>
                 </section>
 
                 <section className="space-y-3">
-                  <h2 className="text-2xl font-semibold text-white">2. How long does a typical 3D animation take?</h2>
+                  <h2 className="text-2xl font-semibold text-white">2. How long does a typical edit take?</h2>
                   <p className="text-neutral-300">
-                    Timelines vary depending on complexity, but a standard 15–20 second animation usually takes 7–14
-                    working days after final concept approval.
+                    Turnaround times vary by project complexity. A standard 15-minute podcast edit takes 2-3 days, while social media clips are typically delivered within 24-48 hours.
                   </p>
                 </section>
 
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">
-                    3. Do you work with existing CAD files or need product samples?
+                    3. What audio/video formats do you work with?
                   </h2>
                   <p className="text-neutral-300">
-                    We can work with both. If you have CAD or 3D models, we can import and refine them. If not, we can
-                    create models from physical product samples or detailed reference images.
+                    We accept all major formats including MP3, WAV, MP4, MOV, and more. We can also work with raw recordings and provide optimized outputs for different platforms.
                   </p>
                 </section>
 
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">4. How do you price your services?</h2>
                   <p className="text-neutral-300">
-                    Pricing is based on animation length, complexity, number of renders, and modeling requirements. You
-                    can view our detailed pricing on our{" "}
+                    Pricing is based on content length, complexity, and turnaround time. You can view our detailed pricing on our{" "}
                     <a href="/pricing" className="text-lime-300 underline">
                       pricing page
                     </a>
@@ -71,39 +66,35 @@ export default function FAQPage() {
 
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">
-                    6. Will the renders match our brand’s visual style?
+                    6. Will the content match our brand's style?
                   </h2>
                   <p className="text-neutral-300">
-                    Absolutely. We customize lighting, materials, camera angles, and animation pacing to fit your
-                    brand’s identity and marketing needs.
+                    Absolutely. We customize editing style, pacing, transitions, and audio treatment to fit your brand's identity and platform requirements.
                   </p>
                 </section>
 
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">7. What formats do you deliver in?</h2>
                   <p className="text-neutral-300">
-                    We typically deliver in MP4 (H.264) for videos and high-resolution PNG/JPG for stills. Other formats
-                    like MOV, ProRes, or transparent-background renders are available on request.
+                    We deliver optimized formats for each platform - MP3/WAV for podcasts, MP4 for videos, and platform-specific formats for social media. High-resolution masters are also available.
                   </p>
                 </section>
 
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">
-                    8. Can you handle large-scale projects or bulk renders?
+                    8. Can you handle large-scale projects or bulk editing?
                   </h2>
                   <p className="text-neutral-300">
-                    Yes, we regularly work on bulk orders for 10+ animations or 50+ renders. We optimize workflows to
-                    maintain quality and meet tight deadlines.
+                    Yes, we regularly work on bulk orders for multiple episodes, series, or campaigns. We optimize workflows to maintain quality and meet tight deadlines.
                   </p>
                 </section>
 
                 <section className="space-y-3">
                   <h2 className="text-2xl font-semibold text-white">
-                    9. Do you offer creative direction or only technical execution?
+                    9. Do you offer creative direction or only technical editing?
                   </h2>
                   <p className="text-neutral-300">
-                    We do both. Our team can develop creative concepts, storyboards, and camera moves, or simply execute
-                    your pre-approved vision.
+                    We do both. Our team can develop creative concepts, content strategies, and editing styles, or simply execute your pre-approved vision with technical excellence.
                   </p>
                 </section>
 
@@ -114,7 +105,7 @@ export default function FAQPage() {
                     <a href="/contact" className="text-lime-300 underline">
                       contact us
                     </a>{" "}
-                    with your project details, references, and timeline. We’ll provide a proposal and next steps.
+                    with your project details, content samples, and timeline. We'll provide a proposal and next steps.
                   </p>
                 </section>
               </div>

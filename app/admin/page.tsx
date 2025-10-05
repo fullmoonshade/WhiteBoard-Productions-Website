@@ -117,26 +117,26 @@ interface ActivityItem {
 
 const defaultContent: ContentData = {
   hero: {
-    title: "HIGH-IMPACT 3D ANIMATION FOR BRANDS",
-    subtitle: "skitbit",
+    title: "PROFESSIONAL PODCASTING & VIDEO EDITING",
+    subtitle: "whiteboard productions",
     buttonText: "Chat With Us",
   },
   features: {
-    title: "What makes us the best studio for you.",
-    subtitle: "Discover our unique approach to 3D animation",
+    title: "What makes us the best studio for your content.",
+    subtitle: "Discover our unique approach to podcasting and video editing",
   },
   footer: {
-    tagline: "Experience 3D animation like never before. We craft cinematic visuals for brands and products.",
-    copyright: "© 2025 — Skitbit International Uk",
+    tagline: "Experience professional podcasting and video editing like never before. We craft engaging content for creators and brands.",
+    copyright: "© 2025 — WhiteBoard Productions",
   },
   about: {
-    title: "About Skitbit International",
-    description: "Pioneering the future of 3D product animation for global brands.",
-    mission: "To create stunning 3D animations that help brands tell their story and connect with their audience.",
-    vision: "To be the world's leading 3D animation studio, known for creativity, quality, and innovation.",
-    teamSize: "50+ Creative Professionals",
+    title: "About WhiteBoard Productions",
+    description: "Pioneering the future of podcasting and video editing for content creators worldwide.",
+    mission: "To create professional audio and video content that helps creators tell their story and connect with their audience.",
+    vision: "To be the world's leading podcasting and video editing studio, known for quality, speed, and innovation.",
+    teamSize: "20+ Creative Professionals",
     founded: "2020",
-    locations: "London, Noida, Bangalore, Mumbai, Toronto, New York, Dubai, Melbourne",
+    locations: "Miami, Los Angeles, New York, Canada, United Kingdom",
   },
   pricing: {
     startup: {
@@ -310,7 +310,7 @@ export default function AdminDashboard() {
       if (sessionCookie && sessionCookie.includes("authenticated")) {
         setIsAuthenticated(true)
         // Load saved content from localStorage
-        const savedContent = localStorage.getItem("skitbit-content")
+        const savedContent = localStorage.getItem("whiteboard-content")
         if (savedContent) {
           const parsedContent = JSON.parse(savedContent)
           setContent(parsedContent)
@@ -413,7 +413,7 @@ export default function AdminDashboard() {
 
     try {
       // Save to localStorage
-      localStorage.setItem("skitbit-content", JSON.stringify(content))
+      localStorage.setItem("whiteboard-content", JSON.stringify(content))
 
       // Create a new activity item
       const section = selectedPage.charAt(0).toUpperCase() + selectedPage.slice(1)
@@ -1522,7 +1522,7 @@ export default function AdminDashboard() {
                   className="bg-red-600 hover:bg-red-700"
                   onClick={() => {
                     if (confirm("Are you sure you want to reset all dashboard data? This cannot be undone.")) {
-                      localStorage.removeItem("skitbit-content")
+                      localStorage.removeItem("whiteboard-content")
                       localStorage.removeItem("skitbit-activity")
                       setContent(defaultContent)
                       setOriginalContent(defaultContent)

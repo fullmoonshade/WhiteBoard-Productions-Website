@@ -210,6 +210,30 @@
   animation: scroll-left 45s linear infinite;
 }
 
+/* Page Transition Styles */
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Hide v0 preview badge (preview-only; not present in production) */
 a[aria-label="Built with v0"],
 a[title="Built with v0"],

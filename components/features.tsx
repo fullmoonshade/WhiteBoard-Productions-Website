@@ -11,8 +11,8 @@ interface FeaturesContent {
 }
 
 const defaultContent: FeaturesContent = {
-  title: "What makes us the best studio for you.",
-  subtitle: "Discover our unique approach to 3D animation",
+  title: "What makes us the best studio for your content.",
+  subtitle: "Discover our unique approach to podcasting and video editing",
 }
 
 export function Features() {
@@ -20,7 +20,7 @@ export function Features() {
 
   useEffect(() => {
     // Load content from localStorage
-    const savedContent = localStorage.getItem("skitbit-content")
+    const savedContent = localStorage.getItem("whiteboard-content")
     if (savedContent) {
       try {
         const parsed = JSON.parse(savedContent)
@@ -40,18 +40,18 @@ export function Features() {
       </h2>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {/* Adaptability Card - Hidden on mobile */}
+        {/* Audio Quality Card - Hidden on mobile */}
         <Card className="hidden md:block liquid-glass border border-white/10 bg-white/5 backdrop-blur-xl">
           <CardHeader>
-            <p className="text-[11px] tracking-widest text-neutral-400">ADAPTABILITY</p>
-            <CardTitle className="mt-1 text-xl text-white">Make the experience truly intuitive</CardTitle>
+            <p className="text-[11px] tracking-widest text-neutral-400">AUDIO QUALITY</p>
+            <CardTitle className="mt-1 text-xl text-white">Crystal-clear sound that captivates</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 gap-4">
               <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-white/10">
                 <Image
                   src="/images/intuitive-1.png"
-                  alt="Close-up smartphone camera module on textured leather back"
+                  alt="Professional podcast recording setup with microphones"
                   fill
                   className="object-cover"
                   sizes="(min-width: 768px) 240px, 45vw"
@@ -61,7 +61,7 @@ export function Features() {
               <div className="relative aspect-[3/4] overflow-hidden rounded-xl border border-white/10">
                 <Image
                   src="/images/intuitive-2.png"
-                  alt="Hand gripping textured phone back — macro detail"
+                  alt="Audio editing workstation with professional equipment"
                   fill
                   className="object-cover"
                   sizes="(min-width: 768px) 240px, 45vw"
@@ -77,7 +77,7 @@ export function Features() {
           <CardHeader>
             <p className="text-[11px] tracking-widest text-neutral-400">CLIENT LOVE</p>
             <CardTitle className="mt-1 text-xl text-white">
-              Their work didn't just look good, it moved the needle — our audience felt the difference instantly.
+              Their editing didn't just sound good, it moved the needle — our audience felt the difference instantly.
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -94,14 +94,14 @@ export function Features() {
                 src={"/images/top-rated-1.png"}
                 width={280}
                 height={160}
-                alt="Product sketch concepts of backpack on paper"
+                alt="Podcast recording session with professional microphones"
                 className="h-full w-full rounded-xl border border-white/10 object-cover"
               />
               <Image
                 src={"/images/top-rated-2.png"}
                 width={280}
                 height={160}
-                alt="Backpacks on stage with Smartpack PRO lighting"
+                alt="Video editing workstation with multiple monitors"
                 className="h-full w-full rounded-xl border border-white/10 object-cover"
               />
             </div>

@@ -11,16 +11,16 @@ interface OrderState {
     name: string
     price: string
     priceValue: number
-    includes3DModeling: boolean
+    includesPodcastProduction: boolean
   } | null
-  has3DModel: boolean | null
-  modelingAddOn: {
+  hasPodcastContent: boolean | null
+  podcastAddOn: {
     name: string
     price: number
     complexity: string
   } | null
-  needsRenders: boolean | null
-  renderPackage: {
+  needsVideoVariations: boolean | null
+  videoPackage: {
     name: string
     price: number
     quantity: number
@@ -57,21 +57,21 @@ export default function CheckoutPage() {
   const [currency, setCurrency] = useState<Currency>("USD")
   const [order, setOrder] = useState<OrderState>({
     package: null,
-    has3DModel: null,
-    modelingAddOn: null,
-    needsRenders: null,
-    renderPackage: null,
+    hasPodcastContent: null,
+    podcastAddOn: null,
+    needsVideoVariations: null,
+    videoPackage: null,
   })
 
   // Add state for order configuration
   const [orderConfig, setOrderConfig] = useState({
     whatsappNumber: "+918384092211",
-    modelingOptions: {
-      simple: { price_usd: 35, price_inr: 3000, description: "Basic shapes, minimal details" },
-      medium: { price_usd: 60, price_inr: 5000, description: "Moderate details, textures" },
-      complex: { price_usd: 120, price_inr: 10000, description: "High detail, advanced geometry" },
+    podcastOptions: {
+      basic: { price_usd: 35, price_inr: 3000, description: "Basic audio cleanup & enhancement" },
+      standard: { price_usd: 60, price_inr: 5000, description: "Professional mastering & editing" },
+      premium: { price_usd: 120, price_inr: 10000, description: "Full production & distribution" },
     },
-    renderOptions: {
+    videoOptions: {
       basic: { price_usd: 25, price_inr: 2000, quantity: 3 },
       standard: { price_usd: 35, price_inr: 3000, quantity: 5 },
       premium: { price_usd: 60, price_inr: 5000, quantity: 10 },
@@ -80,7 +80,7 @@ export default function CheckoutPage() {
 
   // Load configuration
   useEffect(() => {
-    const savedContent = localStorage.getItem("skitbit-content")
+    const savedContent = localStorage.getItem("whiteboard-content")
     if (savedContent) {
       const content = JSON.parse(savedContent)
       if (content.orderForm) {
@@ -121,20 +121,20 @@ export default function CheckoutPage() {
         name: planName,
         price: currency === "INR" ? PRICES[planKey].inr : PRICES[planKey].usd,
         priceValue: currency === "INR" ? PRICE_VALUES[planKey].inr : PRICE_VALUES[planKey].usd,
-        includes3DModeling: planKey === "premium" || planKey === "startup", // Both Premium and Startup include modeling
+        includesPodcastProduction: planKey === "premium" || planKey === "startup", // Both Premium and Startup include podcast production
       }
 
       setOrder({
         package: packageData,
-        has3DModel: null,
-        modelingAddOn: null,
-        needsRenders: null,
-        renderPackage: null,
+        hasPodcastContent: null,
+        podcastAddOn: null,
+        needsVideoVariations: null,
+        videoPackage: null,
       })
 
       // Calculate total steps based on package
-      if (packageData.includes3DModeling) {
-        setTotalSteps(3) // Skip 3D modeling question and selection for Startup and Premium
+      if (packageData.includesPodcastProduction) {
+        setTotalSteps(3) // Skip podcast production question and selection for Startup and Premium
       } else {
         setTotalSteps(4) // Pro plan goes through all steps
       }
@@ -147,8 +147,8 @@ export default function CheckoutPage() {
 
   const calculateTotal = () => {
     let total = order.package?.priceValue || 0
-    if (order.modelingAddOn) total += order.modelingAddOn.price
-    if (order.renderPackage) total += order.renderPackage.price
+    if (order.podcastAddOn) total += order.podcastAddOn.price
+    if (order.videoPackage) total += order.videoPackage.price
     return total
   }
 
@@ -162,22 +162,22 @@ export default function CheckoutPage() {
 
   const handleNext = () => {
     if (currentStep === 1) {
-      // For Startup/Premium (includes 3D modeling), go straight to renders
-      if (order.package?.includes3DModeling) {
-        setCurrentStep(2) // Go to renders question
+      // For Startup/Premium (includes podcast production), go straight to video variations
+      if (order.package?.includesPodcastProduction) {
+        setCurrentStep(2) // Go to video variations question
       } else {
-        // For Pro plan, check if user has 3D model
-        if (order.has3DModel === false) {
-          setCurrentStep(2) // Go to modeling selection
-        } else if (order.has3DModel === true) {
-          setCurrentStep(3) // Skip modeling, go to renders question
+        // For Pro plan, check if user has podcast content
+        if (order.hasPodcastContent === false) {
+          setCurrentStep(2) // Go to podcast production selection
+        } else if (order.hasPodcastContent === true) {
+          setCurrentStep(3) // Skip podcast production, go to video variations question
         }
       }
     } else if (currentStep === 2) {
-      if (order.package?.includes3DModeling) {
+      if (order.package?.includesPodcastProduction) {
         setCurrentStep(3) // Summary for Startup/Premium
       } else {
-        setCurrentStep(3) // Go to renders question for Pro
+        setCurrentStep(3) // Go to video variations question for Pro
       }
     } else if (currentStep === 3) {
       setCurrentStep(4) // Summary
@@ -193,15 +193,15 @@ export default function CheckoutPage() {
     if (currentStep === 2) {
       setCurrentStep(1) // Always go back to step 1
     } else if (currentStep === 3) {
-      // If we're on renders/summary step for plans with included modeling, go back to step 1
-      if (order.package?.includes3DModeling) {
+      // If we're on video variations/summary step for plans with included podcast production, go back to step 1
+      if (order.package?.includesPodcastProduction) {
         setCurrentStep(1)
       } else {
-        // For Pro plan, check if we came from modeling selection
-        if (order.has3DModel === false) {
-          setCurrentStep(2) // Go back to modeling selection
+        // For Pro plan, check if we came from podcast production selection
+        if (order.hasPodcastContent === false) {
+          setCurrentStep(2) // Go back to podcast production selection
         } else {
-          setCurrentStep(1) // Go back to 3D model question
+          setCurrentStep(1) // Go back to podcast content question
         }
       }
     } else {
@@ -213,14 +213,14 @@ export default function CheckoutPage() {
     let message = `Hi, I would like to order:\n\n`
     message += `📦 Package: ${order.package?.name} - ${order.package?.price}\n`
 
-    if (order.modelingAddOn) {
-      const modelingPrice = formatPrice(order.modelingAddOn.price)
-      message += `🎨 3D Modeling: ${order.modelingAddOn.name} - ${modelingPrice}\n`
+    if (order.podcastAddOn) {
+      const podcastPrice = formatPrice(order.podcastAddOn.price)
+      message += `🎙️ Podcast Production: ${order.podcastAddOn.name} - ${podcastPrice}\n`
     }
 
-    if (order.renderPackage) {
-      const renderPrice = formatPrice(order.renderPackage.price)
-      message += `🖼️ Renders: ${order.renderPackage.name} (${order.renderPackage.quantity} renders) - ${renderPrice}\n`
+    if (order.videoPackage) {
+      const videoPrice = formatPrice(order.videoPackage.price)
+      message += `🎬 Video Variations: ${order.videoPackage.name} (${order.videoPackage.quantity} variations) - ${videoPrice}\n`
     }
 
     message += `\n💰 Total: ${formatPrice(calculateTotal())}\n\n`
@@ -252,28 +252,55 @@ export default function CheckoutPage() {
     return (currentStep / totalSteps) * 100
   }
 
-  const getStepContent = () => {
-    // Step 1: 3D Model Question (only for Pro plan)
-    if (currentStep === 1 && !order.package?.includes3DModeling) {
+  // Define types for different option structures
+  type BaseOption = {
+    id: string
+    title: string
+    emoji: string
+    action: () => void
+  }
+
+  type OptionWithPrice = BaseOption & {
+    price: string
+    subtitle?: string
+  }
+
+  type OptionWithoutPrice = BaseOption & {
+    price?: never
+    subtitle?: never
+  }
+
+  type StepOption = OptionWithPrice | OptionWithoutPrice
+
+  type StepContent = {
+    title: string
+    subtitle: string
+    options?: StepOption[]
+    isSummary?: boolean
+  }
+
+  const getStepContent = (): StepContent => {
+    // Step 1: Podcast Content Question (only for Pro plan)
+    if (currentStep === 1 && !order.package?.includesPodcastProduction) {
       return {
-        title: "Do you have a 3D model?",
-        subtitle: "We need to know if you already have a 3D model or if we should create one for you.",
+        title: "Do you have podcast content?",
+        subtitle: "We need to know if you already have podcast audio or if we should help produce it for you.",
         options: [
           {
             id: "yes",
-            title: "Yes, I have one",
+            title: "Yes, I have audio content",
             emoji: "✅",
             action: () => {
-              updateOrder({ has3DModel: true })
+              updateOrder({ hasPodcastContent: true })
               setTimeout(handleNext, 300)
             },
           },
           {
             id: "no",
-            title: "No, create one for me",
-            emoji: "🎨",
+            title: "No, help me produce it",
+            emoji: "🎙️",
             action: () => {
-              updateOrder({ has3DModel: false })
+              updateOrder({ hasPodcastContent: false })
               setTimeout(handleNext, 300)
             },
           },
@@ -281,32 +308,32 @@ export default function CheckoutPage() {
       }
     }
 
-    // Step 2: 3D Modeling Selection (only for Pro plan if user doesn't have model)
-    if (currentStep === 2 && !order.package?.includes3DModeling && !order.has3DModel) {
+    // Step 2: Podcast Production Selection (only for Pro plan if user doesn't have content)
+    if (currentStep === 2 && !order.package?.includesPodcastProduction && !order.hasPodcastContent) {
       return {
-        title: "Choose modeling complexity",
-        subtitle: "Select the level that matches your product requirements.",
+        title: "Choose podcast production level",
+        subtitle: "Select the level that matches your podcast production needs.",
         options: [
           {
-            name: "Simple",
-            price_inr: orderConfig.modelingOptions.simple.price_inr,
-            price_usd: orderConfig.modelingOptions.simple.price_usd,
-            complexity: orderConfig.modelingOptions.simple.description,
-            emoji: "🔷",
+            name: "Basic",
+            price_inr: orderConfig.podcastOptions.basic.price_inr,
+            price_usd: orderConfig.podcastOptions.basic.price_usd,
+            complexity: orderConfig.podcastOptions.basic.description,
+            emoji: "🎙️",
           },
           {
-            name: "Medium",
-            price_inr: orderConfig.modelingOptions.medium.price_inr,
-            price_usd: orderConfig.modelingOptions.medium.price_usd,
-            complexity: orderConfig.modelingOptions.medium.description,
-            emoji: "🔶",
+            name: "Standard",
+            price_inr: orderConfig.podcastOptions.standard.price_inr,
+            price_usd: orderConfig.podcastOptions.standard.price_usd,
+            complexity: orderConfig.podcastOptions.standard.description,
+            emoji: "🎧",
           },
           {
-            name: "Complex",
-            price_inr: orderConfig.modelingOptions.complex.price_inr,
-            price_usd: orderConfig.modelingOptions.complex.price_usd,
-            complexity: orderConfig.modelingOptions.complex.description,
-            emoji: "💎",
+            name: "Premium",
+            price_inr: orderConfig.podcastOptions.premium.price_inr,
+            price_usd: orderConfig.podcastOptions.premium.price_usd,
+            complexity: orderConfig.podcastOptions.premium.description,
+            emoji: "🎤",
           },
         ].map((option) => {
           const price = currency === "INR" ? option.price_inr : option.price_usd
@@ -319,7 +346,7 @@ export default function CheckoutPage() {
             emoji: option.emoji,
             action: () => {
               updateOrder({
-                modelingAddOn: {
+                podcastAddOn: {
                   name: option.name,
                   price: price,
                   complexity: option.complexity,
@@ -332,32 +359,32 @@ export default function CheckoutPage() {
       }
     }
 
-    // Step 1 for Startup/Premium OR Step 2/3 for Pro: Renders Question
-    const isRenderStep =
-      (currentStep === 1 && order.package?.includes3DModeling) || // Startup/Premium first step
-      (currentStep === 2 && order.package?.includes3DModeling) || // This shouldn't happen but safety
-      (currentStep === 3 && !order.package?.includes3DModeling) // Pro plan after modeling
+    // Step 1 for Startup/Premium OR Step 2/3 for Pro: Video Variations Question
+    const isVideoStep =
+      (currentStep === 1 && order.package?.includesPodcastProduction) || // Startup/Premium first step
+      (currentStep === 2 && order.package?.includesPodcastProduction) || // This shouldn't happen but safety
+      (currentStep === 3 && !order.package?.includesPodcastProduction) // Pro plan after podcast
 
-    if (isRenderStep) {
+    if (isVideoStep) {
       return {
-        title: "Need 3D renders?",
-        subtitle: "High-quality still images perfect for marketing materials.",
+        title: "Need video variations?",
+        subtitle: "Multiple video formats optimized for different social media platforms.",
         options: [
           {
             id: "yes",
-            title: "Yes, add renders",
-            emoji: "🖼️",
+            title: "Yes, add video variations",
+            emoji: "🎬",
             action: () => {
-              updateOrder({ needsRenders: true })
+              updateOrder({ needsVideoVariations: true })
               setTimeout(handleNext, 300)
             },
           },
           {
             id: "no",
-            title: "No, animation only",
-            emoji: "🎬",
+            title: "No, single video only",
+            emoji: "📱",
             action: () => {
-              updateOrder({ needsRenders: false, renderPackage: null })
+              updateOrder({ needsVideoVariations: false, videoPackage: null })
               setTimeout(handleNext, 300)
             },
           },
@@ -365,31 +392,31 @@ export default function CheckoutPage() {
       }
     }
 
-    // Render Package Selection
-    if (order.needsRenders && !order.renderPackage) {
+    // Video Package Selection
+    if (order.needsVideoVariations && !order.videoPackage) {
       return {
-        title: "Choose render package",
-        subtitle: "Select the number of high-quality renders you need.",
+        title: "Choose video package",
+        subtitle: "Select the number of video variations you need for different platforms.",
         options: [
           {
             name: "Basic Pack",
-            quantity: orderConfig.renderOptions.basic.quantity,
-            price_inr: orderConfig.renderOptions.basic.price_inr,
-            price_usd: orderConfig.renderOptions.basic.price_usd,
-            emoji: "📸",
+            quantity: orderConfig.videoOptions.basic.quantity,
+            price_inr: orderConfig.videoOptions.basic.price_inr,
+            price_usd: orderConfig.videoOptions.basic.price_usd,
+            emoji: "📱",
           },
           {
             name: "Standard Pack",
-            quantity: orderConfig.renderOptions.standard.quantity,
-            price_inr: orderConfig.renderOptions.standard.price_inr,
-            price_usd: orderConfig.renderOptions.standard.price_usd,
-            emoji: "📷",
+            quantity: orderConfig.videoOptions.standard.quantity,
+            price_inr: orderConfig.videoOptions.standard.price_inr,
+            price_usd: orderConfig.videoOptions.standard.price_usd,
+            emoji: "📺",
           },
           {
             name: "Premium Pack",
-            quantity: orderConfig.renderOptions.premium.quantity,
-            price_inr: orderConfig.renderOptions.premium.price_inr,
-            price_usd: orderConfig.renderOptions.premium.price_usd,
+            quantity: orderConfig.videoOptions.premium.quantity,
+            price_inr: orderConfig.videoOptions.premium.price_inr,
+            price_usd: orderConfig.videoOptions.premium.price_usd,
             emoji: "🎥",
           },
         ].map((option) => {
@@ -399,12 +426,12 @@ export default function CheckoutPage() {
           return {
             id: option.name,
             title: option.name,
-            subtitle: `${option.quantity} renders`,
+            subtitle: `${option.quantity} variations`,
             price: priceDisplay,
             emoji: option.emoji,
             action: () => {
               updateOrder({
-                renderPackage: {
+                videoPackage: {
                   name: option.name,
                   price: price,
                   quantity: option.quantity,
@@ -488,37 +515,37 @@ export default function CheckoutPage() {
                   <div className="flex justify-between items-center py-3 border-b border-neutral-800 sm:py-4">
                     <div>
                       <h4 className="font-semibold text-white text-base sm:text-lg">{order.package.name} Plan</h4>
-                      <p className="text-neutral-400 text-sm mt-0.5 sm:mt-1">3D Animation Package</p>
+                      <p className="text-neutral-400 text-sm mt-0.5 sm:mt-1">Podcasting & Video Editing Package</p>
                     </div>
                     <span className="font-bold text-white text-base sm:text-lg">{order.package.price}</span>
                   </div>
 
-                  {order.modelingAddOn && (
+                  {order.podcastAddOn && (
                     <div className="flex justify-between items-center py-3 border-b border-neutral-800 sm:py-4">
                       <div>
                         <h4 className="font-semibold text-white text-sm sm:text-base">
-                          3D Modeling - {order.modelingAddOn.name}
+                          Podcast Production - {order.podcastAddOn.name}
                         </h4>
                         <p className="text-neutral-400 text-xs mt-0.5 sm:text-sm sm:mt-1">
-                          {order.modelingAddOn.complexity}
+                          {order.podcastAddOn.complexity}
                         </p>
                       </div>
                       <span className="font-bold text-white text-sm sm:text-base">
-                        +{formatPrice(order.modelingAddOn.price)}
+                        +{formatPrice(order.podcastAddOn.price)}
                       </span>
                     </div>
                   )}
 
-                  {order.renderPackage && (
+                  {order.videoPackage && (
                     <div className="flex justify-between items-center py-3 border-b border-neutral-800 sm:py-4">
                       <div>
-                        <h4 className="font-semibold text-white text-sm sm:text-base">{order.renderPackage.name}</h4>
+                        <h4 className="font-semibold text-white text-sm sm:text-base">{order.videoPackage.name}</h4>
                         <p className="text-neutral-400 text-xs mt-0.5 sm:text-sm sm:mt-1">
-                          {order.renderPackage.quantity} renders
+                          {order.videoPackage.quantity} video variations
                         </p>
                       </div>
                       <span className="font-bold text-white text-sm sm:text-base">
-                        +{formatPrice(order.renderPackage.price)}
+                        +{formatPrice(order.videoPackage.price)}
                       </span>
                     </div>
                   )}
@@ -557,11 +584,11 @@ export default function CheckoutPage() {
                           <div className="font-semibold text-white text-base group-hover:text-[#C6FF3A] transition-colors sm:text-lg">
                             {option.title}
                           </div>
-                          {option.price && (
+                          {'price' in option && option.price && (
                             <div className="text-[#C6FF3A] font-bold text-sm sm:text-base">{option.price}</div>
                           )}
                         </div>
-                        {option.subtitle && (
+                        {'subtitle' in option && option.subtitle && (
                           <div className="text-neutral-400 text-sm mt-1 sm:text-base">{option.subtitle}</div>
                         )}
                       </div>

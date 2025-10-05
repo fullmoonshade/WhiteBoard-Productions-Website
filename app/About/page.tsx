@@ -1,18 +1,19 @@
 // app/about/page.tsx
 import React from "react";
+import { SiteHeader } from "@/components/site-header";
 
 export default function AboutPage() {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Skitbit International",
-    url: "https://theskitbit.com",
-    logo: "https://theskitbit.com/logo.png",
+    name: "WhiteBoard Productions",
+    url: "https://whiteboardproductions.com",
+    logo: "https://whiteboardproductions.com/logo.png",
     description:
-      "Skitbit International is a 3D product animation agency serving clients in Miami, Los Angeles, New York, Canada, and the UK.",
+      "WhiteBoard Productions is a professional podcasting and video editing agency serving content creators, businesses, and influencers worldwide.",
     sameAs: [
-      "https://www.instagram.com/skitbit",
-      "https://www.linkedin.com/company/skitbit",
+      "https://www.instagram.com/whiteboardproductions",
+      "https://www.linkedin.com/company/whiteboardproductions",
     ],
     address: {
       "@type": "PostalAddress",
@@ -46,13 +47,15 @@ export default function AboutPage() {
         }}
       />
 
+      <SiteHeader />
+
       {/* Hero Section */}
       <section className="relative bg-black text-white py-20 px-6 md:px-12 lg:px-20 text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          About Skitbit International
+          About WhiteBoard Productions
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-80">
-          Pioneering the future of 3D product animation for global brands.
+          Pioneering the future of podcasting and video editing for content creators worldwide.
         </p>
       </section>
 
@@ -61,28 +64,28 @@ export default function AboutPage() {
         <div className="grid gap-12 md:grid-cols-3">
           {[
             {
-              title: "3D Product Animation",
-              desc: "Photo-realistic animations that showcase your products in stunning detail.",
+              title: "Podcast Production",
+              desc: "Professional audio editing and mastering that brings your voice to life.",
             },
             {
-              title: "Global Reach",
-              desc: "Serving Miami, LA, New York, Canada, and the UK with world-class visuals.",
+              title: "Video Editing",
+              desc: "Engaging video content that captivates audiences across all platforms.",
             },
             {
-              title: "Cutting-edge Technology",
-              desc: "Using the latest rendering engines and motion design tools.",
+              title: "Social Media Clips",
+              desc: "Viral-ready content optimized for Instagram, TikTok, and YouTube.",
             },
             {
-              title: "Brand Storytelling",
-              desc: "Helping brands communicate their vision through immersive 3D visuals.",
+              title: "Content Strategy",
+              desc: "Helping creators develop compelling narratives that resonate with audiences.",
             },
             {
-              title: "Collaborative Workflow",
-              desc: "Work directly with our creative team for maximum efficiency.",
+              title: "Fast Turnaround",
+              desc: "Quick delivery without compromising on quality or attention to detail.",
             },
             {
-              title: "SEO & Marketing Focus",
-              desc: "Optimized content to enhance your visibility on search engines.",
+              title: "Multi-Platform Optimization",
+              desc: "Content tailored for each platform's unique requirements and audience.",
             },
           ].map((feature, index) => (
             <div
@@ -99,10 +102,10 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-20 bg-black text-center text-white px-6">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Ready to Elevate Your Brand?
+          Ready to Elevate Your Content?
         </h2>
         <p className="text-lg opacity-80 mb-8">
-          Let Skitbit International bring your products to life.
+          Let WhiteBoard Productions bring your ideas to life.
         </p>
         <a
           href="/contact"
