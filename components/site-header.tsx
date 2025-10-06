@@ -75,7 +75,7 @@ export function SiteHeader() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="hover:text-purple-300 transition-colors"
+                className="hover:text-red-400 transition-colors"
                 onClick={(e) => handleSmoothScroll(l.href, e)}
               >
                 {l.label}
@@ -87,11 +87,11 @@ export function SiteHeader() {
           <div className="hidden md:flex">
             <Button
               asChild
-              className="bg-lime-400 text-black font-medium rounded-lg px-6 py-2.5
-                         hover:bg-lime-300 hover:shadow-md hover:scale-[1.02]
+              className="bg-white text-black font-medium rounded-lg px-6 py-2.5
+                         hover:bg-gray-100 hover:shadow-md hover:scale-[1.02]
                          transition-all"
             >
-              <Link href="#footer" onClick={(e) => handleSmoothScroll("#footer", e)}>Chat With Us</Link>
+              <a href="https://wa.me/message/DUFCKWYTKH7KC1" target="_blank" rel="noopener noreferrer">Chat With Us</a>
             </Button>
           </div>
 
@@ -130,7 +130,7 @@ export function SiteHeader() {
                     <Link
                       key={l.href}
                       href={l.href}
-                      className="flex items-center gap-3 px-4 py-3 hover:bg-gray-900 hover:text-purple-300 transition-colors"
+                      className="flex items-center gap-3 px-4 py-3 hover:bg-gray-900 hover:text-red-400 transition-colors"
                       onClick={(e) => handleSmoothScroll(l.href, e)}
                     >
                       <span className="inline-flex items-center justify-center w-5 h-5 text-gray-400">
@@ -145,11 +145,11 @@ export function SiteHeader() {
                 <div className="mt-auto border-t border-gray-800 p-4">
                   <Button
                     asChild
-                    className="w-full bg-lime-400 text-black font-medium rounded-lg px-6 py-2.5
-                               hover:bg-lime-300 hover:shadow-md hover:scale-[1.02]
+                    className="w-full bg-white text-black font-medium rounded-lg px-6 py-2.5
+                               hover:bg-gray-100 hover:shadow-md hover:scale-[1.02]
                                transition-all"
                   >
-                    <Link href="https://wa.link/65mf3i">Get a Quote</Link>
+                    <Link href="https://wa.me/message/DUFCKWYTKH7KC1">Get a Quote</Link>
                   </Button>
                 </div>
               </SheetContent>

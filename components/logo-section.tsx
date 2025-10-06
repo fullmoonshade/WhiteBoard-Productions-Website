@@ -7,12 +7,12 @@ export function LogoSection() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center">
           {/* Badge */}
-          <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-purple-600/20 to-purple-500/20 border border-purple-500/30 px-4 py-2 text-sm font-medium text-purple-300">
+          <div className="mb-6 inline-flex items-center rounded-full bg-gradient-to-r from-red-600/20 to-red-500/20 border border-red-500/30 px-4 py-2 text-sm font-medium text-red-300">
             Our Clients
           </div>
 
           {/* Heading */}
-          <h2 className="mb-4 bg-gradient-to-r from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl md:text-6xl">
+          <h2 className="mb-4 bg-gradient-to-r from-red-400 via-red-300 to-red-500 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl md:text-6xl">
             Over 100+ company
           </h2>
 
@@ -105,7 +105,7 @@ export function LogoSection() {
           </div>
 
           {/* CTA Button */}
-          <Button className="group rounded-full bg-gradient-to-r from-purple-600 to-purple-500 px-8 py-3 text-white shadow-lg shadow-purple-500/25 transition-all hover:shadow-xl hover:shadow-purple-500/40 hover:scale-105">
+          <Button className="group rounded-full bg-gradient-to-r from-red-600 to-red-500 px-8 py-3 text-white shadow-lg shadow-red-500/25 transition-all hover:shadow-xl hover:shadow-red-500/40 hover:scale-105">
             Try now for free
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>

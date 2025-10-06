@@ -81,9 +81,9 @@ export function AppverseFooter() {
         <div className="flex justify-center">
           <Button
             asChild
-            className="rounded-full bg-lime-400 px-6 py-2 text-sm font-medium text-black shadow-[0_0_20px_rgba(163,230,53,0.35)] hover:bg-lime-300"
+            className="rounded-full bg-white px-6 py-2 text-sm font-medium text-black shadow-[0_0_20px_rgba(255,255,255,0.35)] hover:bg-gray-100"
           >
-            <a href="https://wa.link/rc25na" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/message/DUFCKWYTKH7KC1" target="_blank" rel="noopener noreferrer">
               Contact us
             </a>
           </Button>
@@ -96,7 +96,7 @@ export function AppverseFooter() {
           <div className="relative grid items-center gap-8 md:grid-cols-2">
             {/* Left copy */}
             <div>
-              <p className="mb-2 text-[11px] tracking-widest text-lime-300">STREAMLINE YOUR CONTENT</p>
+              <p className="mb-2 text-[11px] tracking-widest text-red-400">STREAMLINE YOUR CONTENT</p>
               <h3 className="text-2xl font-bold leading-tight text-white sm:text-3xl">
                 Preview &amp; approve professional content from anywhere
               </h3>
@@ -124,9 +124,9 @@ export function AppverseFooter() {
                   <div className="relative p-3">
                     <div className="mx-auto mb-3 h-1.5 w-16 rounded-full bg-white/20" />
                     <div className="space-y-1 px-1">
-                      <div className="text-5xl font-extrabold text-lime-300">Approvals Made Easy</div>
+                      <div className="text-5xl font-extrabold text-red-400">Approvals Made Easy</div>
                       <p className="text-xs text-white/80">From feedback to approval in a single flow</p>
-                      <div className="mt-3 inline-flex items-center rounded-full bg-black/40 px-2 py-0.5 text-[10px] uppercase tracking-wider text-lime-300">
+                      <div className="mt-3 inline-flex items-center rounded-full bg-black/40 px-2 py-0.5 text-[10px] uppercase tracking-wider text-red-400">
                         Zero Hassle
                       </div>
                     </div>
@@ -146,7 +146,7 @@ export function AppverseFooter() {
             <div className="space-y-3">
               <div className="flex items-center gap-1.5">
                 <Image src="/icons/WhiteBoard-productions-logo-bnw.svg" alt="WhiteBoard Productions logo" width={24} height={24} className="h-6 w-6" />
-                <span className="text-xl font-semibold text-lime-300">WhiteBoard</span>
+                <span className="text-xl font-semibold text-red-400">WhiteBoard</span>
               </div>
               <p className="max-w-sm text-sm text-neutral-400">{content.tagline}</p>
             </div>
@@ -157,16 +157,16 @@ export function AppverseFooter() {
                 <h5 className="mb-2 text-xs font-semibold uppercase tracking-widest text-neutral-400">Navigation</h5>
                 <ul className="space-y-2 text-sm text-neutral-300">
                   <li>
-                    <Link href="/" className="hover:text-lime-300" onClick={(e) => handleSmoothScroll("/", e)}>Home</Link>
+                    <Link href="/" className="hover:text-red-400" onClick={(e) => handleSmoothScroll("/", e)}>Home</Link>
                   </li>
                   <li>
-                    <Link href="#pricing" className="hover:text-lime-300" onClick={(e) => handleSmoothScroll("#pricing", e)}>Pricing</Link>
+                    <Link href="#pricing" className="hover:text-red-400" onClick={(e) => handleSmoothScroll("#pricing", e)}>Pricing</Link>
                   </li>
                   <li>
-                    <Link href="/faq" className="hover:text-lime-300">FAQ</Link>
+                    <Link href="/faq" className="hover:text-red-400">FAQ</Link>
                   </li>
                   <li>
-                    <Link href="/About" className="hover:text-lime-300">About</Link>
+                    <Link href="/About" className="hover:text-red-400">About</Link>
                   </li>
                 </ul>
               </div>
@@ -176,11 +176,11 @@ export function AppverseFooter() {
                   <li className="flex items-center gap-2">
                     <Twitter className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://twitter.com/whiteboardprod"
+                      href="https://x.com/WhiteBoard_bz"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-lime-300"
-                      aria-label="Follow WhiteBoard Productions on Twitter"
+                      className="hover:text-red-400"
+                      aria-label="Follow WhiteBoard Productions on X"
                     >
                       X/Twitter
                     </a>
@@ -188,10 +188,10 @@ export function AppverseFooter() {
                   <li className="flex items-center gap-2">
                     <Youtube className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://www.youtube.com/@whiteboardproductions"
+                      href="https://www.youtube.com/channel/UC2iCPKVrpk3IdAGIrjFfdJw"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-lime-300"
+                      className="hover:text-red-400"
                       aria-label="Subscribe to WhiteBoard Productions on YouTube"
                     >
                       YouTube
@@ -200,25 +200,13 @@ export function AppverseFooter() {
                   <li className="flex items-center gap-2">
                     <Instagram className="h-4 w-4 text-neutral-400" />
                     <a
-                      href="https://instagram.com/whiteboardproductions"
+                      href="https://www.instagram.com/whiteboard.bz/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-lime-300"
+                      className="hover:text-red-400"
                       aria-label="Follow WhiteBoard Productions on Instagram"
                     >
                       Instagram
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <MessageCircle className="h-4 w-4 text-neutral-400" />
-                    <a
-                      href="https://threads.com/whiteboardproductions"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-lime-300"
-                      aria-label="Follow WhiteBoard Productions on Threads"
-                    >
-                      Threads
                     </a>
                   </li>
                 </ul>
@@ -230,7 +218,7 @@ export function AppverseFooter() {
           <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-neutral-500 sm:flex-row">
             <p>{content.copyright}</p>
             <div className="flex items-center gap-6">
-              <Link href="/revisions" className="hover:text-lime-300">
+              <Link href="/revisions" className="hover:text-red-400">
                 Revision Policy
               </Link>
             </div>

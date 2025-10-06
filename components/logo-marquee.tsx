@@ -62,15 +62,12 @@ export function LogoMarquee() {
     <section className="text-white py-16 sm:py-20 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="flex flex-col items-center justify-between mb-12 sm:flex-row sm:items-center">
-          <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl text-center sm:text-left">
-            Meet our <span className="text-lime-300">top-tier</span>
+        <div className="flex flex-col items-center justify-center mb-12">
+          <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl text-center">
+            Meet our <span className="text-red-400">top-tier</span>
             <br />
             customers
           </h2>
-          <Button variant="outline" className="mt-4 sm:mt-0 liquid-glass hover:liquid-glass-enhanced bg-transparent">
-            Learn More
-          </Button>
         </div>
 
         {/* Logo Marquee */}

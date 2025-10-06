@@ -82,7 +82,7 @@ export default function RevisionPolicyPage() {
                     Email: <a href="mailto:hello@whiteboardproductions.com" className="text-lime-300 underline">hello@whiteboardproductions.com</a>
                   </p>
                   <p className="text-neutral-300">
-                    WhatsApp: <a href="https://wa.link/rc25na" className="text-lime-300 underline" target="_blank" rel="noopener noreferrer">Contact us on WhatsApp</a>
+                    WhatsApp: <a href="https://wa.me/message/DUFCKWYTKH7KC1" className="text-lime-300 underline" target="_blank" rel="noopener noreferrer">Contact us on WhatsApp</a>
                   </p>
                 </section>
               </div>

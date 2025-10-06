@@ -62,10 +62,9 @@ export default function Page() {
       name: "WhiteBoard Productions",
       url: "https://whiteboardproductions.com",
       sameAs: [
-        "https://twitter.com/whiteboardprod",
-        "https://www.youtube.com/@whiteboardproductions",
-        "https://instagram.com/whiteboardproductions",
-        "https://threads.com/whiteboardproductions",
+        "https://x.com/WhiteBoard_bz",
+        "https://www.youtube.com/channel/UC2iCPKVrpk3IdAGIrjFfdJw",
+        "https://www.instagram.com/whiteboard.bz/",
       ],
     },
     hasPart: [

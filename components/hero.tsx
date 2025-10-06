@@ -4,8 +4,8 @@ import LazyVideo from "./lazy-video"
 
 export function Hero() {
   const buttonNew = (
-    <Button asChild className="rounded-full bg-lime-400 px-6 text-black hover:bg-lime-300 hover:shadow-md hover:scale-[1.02] transition-all">
-      <a href="https://wa.link/rc25na" target="_blank" rel="noopener noreferrer">
+    <Button asChild className="rounded-full bg-white px-6 text-black hover:bg-gray-100 hover:shadow-md hover:scale-[1.02] transition-all">
+      <a href="https://wa.me/message/DUFCKWYTKH7KC1" target="_blank" rel="noopener noreferrer">
         Chat With Us
       </a>
     </Button>
@@ -17,18 +17,18 @@ export function Hero() {
         <div className="flex flex-col items-center justify-center py-14 sm:py-20">
           <div className="mb-5 flex items-center gap-2">
             <Image src="/icons/WhiteBoard-productions-logo-bnw.svg" alt="WhiteBoard Productions logo" width={32} height={32} className="h-8 w-8" />
-            <p className="text-sm uppercase tracking-[0.25em] text-lime-300/80">whiteboard</p>
+            <p className="text-sm uppercase tracking-[0.25em] text-red-400/80">whiteboard</p>
           </div>
           <h1 className="mt-3 text-center text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
             <span className="block">PROFESSIONAL</span>
-            <span className="block text-lime-300 drop-shadow-[0_0_20px_rgba(132,204,22,0.35)]">PODCASTING &</span>
+            <span className="block text-red-400 drop-shadow-[0_0_20px_rgba(239,68,68,0.35)]">PODCASTING &</span>
             <span className="block">VIDEO EDITING</span>
           </h1>
           <div className="mt-6">{buttonNew}</div>
 
           {/* Phone grid mimic */}
           <div className="mt-10 flex justify-center">
-            <div className="grid w-full max-w-4xl gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid w-full max-w-4xl gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {phoneData.map((p, i) => {
                 return (
                   <div key={i} className="block">
@@ -78,7 +78,7 @@ function PhoneCard({
           <div className="space-y-1 px-1">
             <div className="text-3xl font-bold leading-snug text-white/90">{title}</div>
             <p className="text-xs text-white/70">{sub}</p>
-            <div className="mt-3 inline-flex items-center rounded-full bg-black/40 px-2 py-0.5 text-[10px] uppercase tracking-wider text-lime-300">
+            <div className="mt-3 inline-flex items-center rounded-full bg-black/40 px-2 py-0.5 text-[10px] uppercase tracking-wider text-red-400">
               {tone === "calm" ? "whiteboard" : tone}
             </div>
           </div>

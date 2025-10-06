@@ -239,7 +239,7 @@ export default function CheckoutPage() {
   // Update WhatsApp URL generation
   const handleConfirmOrder = () => {
     const whatsappMessage = generateWhatsAppMessage()
-    const whatsappUrl = `https://wa.me/${orderConfig.whatsappNumber.replace(/[^0-9]/g, "")}?text=${whatsappMessage}`
+    const whatsappUrl = `https://wa.me/message/DUFCKWYTKH7KC1?text=${whatsappMessage}`
     window.open(whatsappUrl, "_blank")
     router.push("/")
   }

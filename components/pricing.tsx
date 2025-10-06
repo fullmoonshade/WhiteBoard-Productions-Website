@@ -9,7 +9,7 @@ import { ExamplesDialog } from "./examples-dialog"
 
 type Feature = { text: string; muted?: boolean }
 
-const ACCENT = "#C6FF3A"
+const ACCENT = "#ef4444"
 
 function FeatureItem({ text, muted = false }: Feature) {
   return (
@@ -111,7 +111,7 @@ export function Pricing() {
         <div className="mx-auto max-w-3xl text-center">
           <div
             className="mx-auto mb-4 inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
-            style={{ backgroundColor: "rgba(198,255,58,0.12)", color: ACCENT }}
+            style={{ backgroundColor: "rgba(239,68,68,0.12)", color: ACCENT }}
           >
             Our Pricing and Packages
           </div>
@@ -127,7 +127,7 @@ export function Pricing() {
               className="rounded-full px-5 text-neutral-900 hover:brightness-95"
               style={{ backgroundColor: "#f2f2f2" }}
             >
-              <Link href="https://wa.link/rc25na" target="_blank">
+              <Link href="https://wa.me/message/DUFCKWYTKH7KC1" target="_blank">
                 Contact now
               </Link>
             </Button>
@@ -160,7 +160,7 @@ export function Pricing() {
                 <meta itemProp="priceCurrency" content={currency} />
               </div>
               <div className="flex gap-2">
-                <Button
+                {/* <Button
                   type="button"
                   onClick={() => setOpenPlan("Startup")}
                   onTouchStart={() => setOpenPlan("Startup")}
@@ -172,10 +172,10 @@ export function Pricing() {
                   }}
                 >
                   View Example
-                </Button>
+                </Button> */}
                 <Button
                   asChild
-                  className="flex-1 rounded-full px-4 py-2 text-sm font-medium text-black shadow transition-[box-shadow,transform,filter] active:translate-y-[1px]"
+                  className="w-full rounded-full px-4 py-2 text-sm font-medium text-black shadow transition-[box-shadow,transform,filter] active:translate-y-[1px]"
                   style={{ backgroundColor: ACCENT }}
                 >
                   <Link href="/checkout?plan=startup">Select</Link>
@@ -219,7 +219,7 @@ export function Pricing() {
               </div>
 
               <div className="flex gap-2">
-                <Button
+                {/* <Button
                   type="button"
                   onClick={() => setOpenPlan("Pro")}
                   onTouchStart={() => setOpenPlan("Pro")}
@@ -231,10 +231,10 @@ export function Pricing() {
                   }}
                 >
                   View Example
-                </Button>
+                </Button> */}
                 <Button
                   asChild
-                  className="flex-1 rounded-full px-4 py-2 text-sm font-medium text-black shadow transition-[box-shadow,transform,filter] active:translate-y-[1px]"
+                  className="w-full rounded-full px-4 py-2 text-sm font-medium text-black shadow transition-[box-shadow,transform,filter] active:translate-y-[1px]"
                   style={{ backgroundColor: ACCENT }}
                 >
                   <Link href="/checkout?plan=pro">Select</Link>
@@ -277,7 +277,7 @@ export function Pricing() {
                 <meta itemProp="priceCurrency" content={currency} />
               </div>
               <div className="flex gap-2">
-                <Button
+                {/* <Button
                   type="button"
                   onClick={() => setOpenPlan("Premium")}
                   onTouchStart={() => setOpenPlan("Premium")}
@@ -289,10 +289,10 @@ export function Pricing() {
                   }}
                 >
                   View Example
-                </Button>
+                </Button> */}
                 <Button
                   asChild
-                  className="flex-1 rounded-full px-4 py-2 text-sm font-medium text-black shadow transition-[box-shadow,transform,filter] active:translate-y-[1px]"
+                  className="w-full rounded-full px-4 py-2 text-sm font-medium text-black shadow transition-[box-shadow,transform,filter] active:translate-y-[1px]"
                   style={{ backgroundColor: ACCENT }}
                 >
                   <Link href="/checkout?plan=premium">Select</Link>
