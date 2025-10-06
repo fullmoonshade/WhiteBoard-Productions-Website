@@ -65,6 +65,7 @@ export default function Page() {
         "https://x.com/WhiteBoard_bz",
         "https://www.youtube.com/channel/UC2iCPKVrpk3IdAGIrjFfdJw",
         "https://www.instagram.com/whiteboard.bz/",
+        "https://www.linkedin.com/company/whiteboard-bz/",
       ],
     },
     hasPart: [

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Instagram, Twitter, Youtube, MessageCircle } from "lucide-react"
+import { Instagram, Twitter, Youtube, MessageCircle, Linkedin } from "lucide-react"
 import LazyVideo from "./lazy-video"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
@@ -207,6 +207,18 @@ export function AppverseFooter() {
                       aria-label="Follow WhiteBoard Productions on Instagram"
                     >
                       Instagram
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Linkedin className="h-4 w-4 text-neutral-400" />
+                    <a
+                      href="https://www.linkedin.com/company/whiteboard-bz/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-red-400"
+                      aria-label="Follow WhiteBoard Productions on LinkedIn"
+                    >
+                      LinkedIn
                     </a>
                   </li>
                 </ul>
