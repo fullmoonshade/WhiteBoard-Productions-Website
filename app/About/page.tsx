@@ -1,6 +1,22 @@
 // app/about/page.tsx
 import React from "react";
 import { SiteHeader } from "@/components/site-header";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About — WhiteBoard Productions | Professional Podcast & Video Editing",
+  description: "Learn about WhiteBoard Productions, a professional podcasting and video editing agency serving content creators, businesses, and influencers worldwide with fast, engaging content.",
+  keywords: ["about WhiteBoard Productions", "podcast editing company", "video production agency", "content creation services", "professional audio editing"],
+  openGraph: {
+    title: "About WhiteBoard Productions",
+    description: "Professional podcasting and video editing agency serving content creators worldwide",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function AboutPage() {
   const schemaData = {
@@ -12,8 +28,9 @@ export default function AboutPage() {
     description:
       "WhiteBoard Productions is a professional podcasting and video editing agency serving content creators, businesses, and influencers worldwide.",
     sameAs: [
-      "https://www.instagram.com/whiteboardproductions",
-      "https://www.linkedin.com/company/whiteboardproductions",
+      "https://x.com/WhiteBoard_bz",
+      "https://www.youtube.com/channel/UC2iCPKVrpk3IdAGIrjFfdJw",
+      "https://www.instagram.com/whiteboard.bz/",
     ],
     address: {
       "@type": "PostalAddress",

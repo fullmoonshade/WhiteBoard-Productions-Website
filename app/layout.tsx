@@ -13,7 +13,38 @@ export const metadata: Metadata = {
   title: "WhiteBoard Productions | Professional Podcasting & Video Editing Services",
   description:
     "From podcast production to viral video clips, WhiteBoard Productions delivers professional audio and video editing that's fast, engaging, and built to captivate your audience.",
-  generator: "v0.app",
+  keywords: ["podcast editing", "video editing", "content creation", "social media clips", "audio production", "video production", "WhiteBoard Productions"],
+  authors: [{ name: "WhiteBoard Productions" }],
+  creator: "WhiteBoard Productions",
+  publisher: "WhiteBoard Productions",
+  generator: "Next.js",
+  applicationName: "WhiteBoard Productions",
+  referrer: "origin-when-cross-origin",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://whiteboardproductions.com",
+    title: "WhiteBoard Productions | Professional Podcasting & Video Editing Services",
+    description: "From podcast production to viral video clips, WhiteBoard Productions delivers professional audio and video editing that's fast, engaging, and built to captivate your audience.",
+    siteName: "WhiteBoard Productions",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WhiteBoard Productions | Professional Podcasting & Video Editing Services",
+    description: "Professional podcast and video editing services for content creators worldwide",
+    creator: "@WhiteBoard_bz",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },

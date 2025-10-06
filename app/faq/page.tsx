@@ -1,5 +1,21 @@
 import { SiteHeader } from "@/components/site-header"
 import { AppverseFooter } from "@/components/appverse-footer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "FAQ — WhiteBoard Productions | Podcast & Video Editing Questions",
+  description: "Frequently asked questions about WhiteBoard Productions' podcast editing, video production, and content creation services. Get answers about pricing, turnaround times, and more.",
+  keywords: ["podcast editing FAQ", "video editing questions", "content creation services", "WhiteBoard Productions help"],
+  openGraph: {
+    title: "FAQ — WhiteBoard Productions",
+    description: "Common questions about our podcast and video editing services",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export default function FAQPage() {
   return (

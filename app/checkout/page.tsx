@@ -5,6 +5,16 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { X, ArrowRight, ChevronLeft } from "lucide-react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Checkout — WhiteBoard Productions | Order Your Podcast & Video Package",
+  description: "Complete your order for WhiteBoard Productions' podcast editing and video production services. Choose your package and get started with professional content creation.",
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 
 interface OrderState {
   package: {
