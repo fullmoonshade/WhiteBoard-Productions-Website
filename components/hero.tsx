@@ -1,13 +1,48 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import LazyVideo from "./lazy-video"
+import { useRouter } from "next/navigation"
+import { useTransition } from "./transition-provider"
 
 export function Hero() {
+  const router = useRouter()
+  const { triggerTransition } = useTransition()
+
+  const handleSeeOffers = (e: React.MouseEvent) => {
+    triggerTransition()
+    e.preventDefault()
+    
+    // If we're not on the home page, navigate to home page first, then scroll to pricing section
+    if (window.location.pathname !== "/") {
+      router.push("/#pricing")
+    } else {
+      // If we're already on home page, just scroll to the pricing section
+      const element = document.querySelector("#pricing")
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        })
+      }
+    }
+  }
+
   const buttonNew = (
     <Button asChild className="rounded-full bg-white px-6 text-black hover:bg-gray-100 hover:shadow-md hover:scale-[1.02] transition-all">
       <a href="https://wa.me/message/DUFCKWYTKH7KC1" target="_blank" rel="noopener noreferrer">
         Chat With Us
       </a>
+    </Button>
+  )
+
+  const seeOffersButton = (
+    <Button 
+      onClick={handleSeeOffers}
+      className="rounded-full bg-red-500 px-6 text-white hover:bg-red-600 hover:shadow-md hover:scale-[1.02] transition-all border-0"
+    >
+      See Offers
     </Button>
   )
 
@@ -24,7 +59,10 @@ export function Hero() {
             <span className="block text-red-400 drop-shadow-[0_0_20px_rgba(239,68,68,0.35)]">PODCASTING &</span>
             <span className="block">VIDEO EDITING</span>
           </h1>
-          <div className="mt-6">{buttonNew}</div>
+          <div className="mt-6 flex flex-col sm:flex-row gap-4 items-center">
+            {seeOffersButton}
+            {buttonNew}
+          </div>
 
           {/* Phone grid mimic */}
           <div className="mt-10 flex justify-center">
