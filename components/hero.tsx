@@ -64,8 +64,24 @@ export function Hero() {
             {buttonNew}
           </div>
 
+          {/* YouTube Video Embed */}
+          <div className="mt-10 w-full max-w-4xl">
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/YUndSgR7R_k"
+                title="WhiteBoard Productions Showcase"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute inset-0"
+              />
+            </div>
+          </div>
+
           {/* Phone grid mimic */}
-          <div className="mt-10 flex justify-center">
+          {/* <div className="mt-10 flex justify-center">
             <div className="grid w-full max-w-4xl gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {phoneData.map((p, i) => {
                 return (
@@ -75,7 +91,7 @@ export function Hero() {
                 )
               })}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
